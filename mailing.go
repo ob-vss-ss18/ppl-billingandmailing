@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func main() {
+func mailing() {
 	auth := smtp.PlainAuth(
 		"",
 		"user@example.com",
