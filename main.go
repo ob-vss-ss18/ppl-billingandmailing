@@ -2,8 +2,7 @@ package main
 
 import ("fmt"
 	"net/http"
-	"os"
-)
+	)
 
 func main() {
 	http.HandleFunc("/", hello)
