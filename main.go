@@ -1,4 +1,4 @@
-package main
+package ppl_billingandmailing
 
 import ("fmt"
 	"net/http"
