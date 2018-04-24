@@ -1,13 +1,11 @@
 language: go
-
+sudo: false
 go:
-  - "1.10.x"
-  
+  - tip
 before_install:
   - go get github.com/mattn/goveralls
 script:
   - $GOPATH/bin/goveralls -service=travis-ci
-
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
