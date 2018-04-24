@@ -1,4 +1,4 @@
-package ppl_billingandmailing
+package mailing
 
 import (
 	"net/smtp"
