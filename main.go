@@ -2,18 +2,18 @@ package main
 
 import ("fmt"
 	"net/http"
+	"log"
 	"os"
-	)
+)
 
 func main() {
-	http.HandleFunc("/", hello)
-	fmt.Println("listening...")
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
-	if err != nil {
-		panic(err)
-	}
+	http.HandleFunc("/", handler)
+	fmt.Println("Server started...")
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))		//  assigned by Heroku as the PORT environment variable
+
+
 }
 
-func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, "Hello World")
+func handler(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprintln(w, "Hello World")
 }
