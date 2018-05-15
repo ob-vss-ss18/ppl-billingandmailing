@@ -28,7 +28,7 @@ func testDB(){
 	if err != nil {
 		log.Println(err);
 	}
-
+/*
 	_, err = db.Exec(`CREATE TABLE TEST_TABLE(
 		ID INT NOT NULL,
 		SOME_VALUE INT,
@@ -44,7 +44,7 @@ func testDB(){
 	if err != nil {
 		log.Println(err);
 	}
-
+*/
 	rows, err = db.Query(`SELECT * FROM TEST_TABLE`)
 	if err != nil {
 		log.Println(err);
