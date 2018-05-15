@@ -5,10 +5,11 @@ import ("fmt"
 	"log"
 	"os"
 	"database/sql"
-	"github.com/lib/pq"
+	_ "github.com/lib/pq"
 )
 
 func main() {
+	testDB()
 	http.HandleFunc("/", handler)
 	fmt.Println("Server started...")
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))		//  assigned by Heroku as the PORT environment variable
@@ -19,6 +20,7 @@ func handler(w http.ResponseWriter, req *http.Request) {
 }
 
 func testDB(){
+
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		fmt.Println(err);
