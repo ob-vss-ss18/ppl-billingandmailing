@@ -40,7 +40,7 @@ func testDB(){
 	}
 
 
-	_, err = db.Exec(`INSERT INTO TEST_TABLE VALUES(2, 4, 8);`)
+	_, err = db.Exec(`INSERT INTO TEST_TABLE VALUES(1, 42), (2, 48), (3, 96);`)
 	if err != nil {
 		log.Println(err);
 	}
