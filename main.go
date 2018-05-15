@@ -20,21 +20,43 @@ func handler(w http.ResponseWriter, req *http.Request) {
 }
 
 func testDB(){
+	var rows *sql.Rows
+	var id int
+	var name string
 
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
-		fmt.Println(err);
+		log.Println(err);
 	}
 
-	db.Exec(`CREATE TABLE TEST_TABLE(
+	_, err = db.Exec(`CREATE TABLE TEST_TABLE(
 		ID INT NOT NULL,
 		NAME TEST_FIELD
 		PRIMARY KEY (ID)
 	);`)
 
-	db.Exec(`INSERT INTO TEST_TABLE
+	if err != nil {
+		log.Println(err);
+	}
+
+
+	_, err = db.Exec(`INSERT INTO TEST_TABLE
 		VALUES(2, 4, 8)
 	);`)
+	if err != nil {
+		log.Println(err);
+	}
 
-	db.Exec(`SELECT * FROM TEST_TABLE`)
+	rows, err = db.Query(`SELECT * FROM TEST_TABLE`)
+	if err != nil {
+		log.Println(err);
+	} else {
+		for rows.Next() {
+			err := rows.Scan(&id, &name)
+			if err != nil {
+				log.Fatal(err)
+			}
+			log.Println(id, name)
+		}
+	}
 }
