@@ -31,7 +31,7 @@ func testDB(){
 
 	_, err = db.Exec(`CREATE TABLE TEST_TABLE(
 		ID INT NOT NULL,
-		NAME TEST_FIELD
+		NAME TEST_FIELD,
 		PRIMARY KEY (ID)
 	);`)
 
@@ -40,9 +40,7 @@ func testDB(){
 	}
 
 
-	_, err = db.Exec(`INSERT INTO TEST_TABLE
-		VALUES(2, 4, 8)
-	);`)
+	_, err = db.Exec(`INSERT INTO TEST_TABLE VALUES(2, 4, 8);`)
 	if err != nil {
 		log.Println(err);
 	}
