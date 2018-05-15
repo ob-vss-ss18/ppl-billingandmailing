@@ -22,7 +22,6 @@ func handler(w http.ResponseWriter, req *http.Request) {
 func testDB(){
 	var rows *sql.Rows
 	var id int
-	var name string
 
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
@@ -50,11 +49,11 @@ func testDB(){
 		log.Println(err);
 	} else {
 		for rows.Next() {
-			err := rows.Scan(&id, &name)
+			err := rows.Scan(&id)
 			if err != nil {
 				log.Fatal(err)
 			}
-			log.Println(id, name)
+			log.Println(id)
 		}
 	}
 }
