@@ -31,7 +31,6 @@ func testDB(){
 
 	_, err = db.Exec(`CREATE TABLE TEST_TABLE(
 		ID INT NOT NULL,
-		NAME TEST_FIELD,
 		PRIMARY KEY (ID)
 	);`)
 
