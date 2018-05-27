@@ -3,17 +3,8 @@ sudo: false
 go:
   - tip
 deploy:
-  - provider: heroku
-    api_key: $HEROKU_API_KEY
-    app: ppl-billingandmailing
-    on:
-      repo: ob-vss-ss18/ppl-billingandmailing
-      branch: release
-    
-  - provider: heroku
-    api_key: $HEROKU_API_KEY
-    app: ppl-billingandmailing-dev
-    on:
-      repo: ob-vss-ss18/ppl-billingandmailing
-      branch: develop
-    
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: 
+    develop: ppl-billingandmailing-dev
+    release: ppl-billingandmailing
