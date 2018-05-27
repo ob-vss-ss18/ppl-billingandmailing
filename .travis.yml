@@ -5,8 +5,8 @@ go:
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: 
-   master: ppl-billingandmailing-dev
-   release: ppl-billingandmailing
-
+  app: ppl-billingandmailing-dev
+    on:
+      repo: ob-vss-ss18/ppl-billingandmailing
+      branch: develop
  
