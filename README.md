@@ -6,4 +6,4 @@
 
 [![Build Status](https://travis-ci.org/ob-vss-ss18/ppl-billingandmailing.svg?branch=develop)](https://travis-ci.org/ob-vss-ss18/ppl-billingandmailing) Development branch
 
-[ppl-billingamdmailing heroku](https://ppl-billingandmailing.herokuapp.com/)
+[ppl-billingamdmailing heroku](https://ppl-billingandmailing.herokuapp.com/) 
