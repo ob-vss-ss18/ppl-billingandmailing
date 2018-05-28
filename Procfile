@@ -1,1 +1,1 @@
-web: ppl-billingandmailing-dev
+web: ppl-billingandmailing
