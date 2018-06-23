@@ -1,17 +1,23 @@
 package main
 
-import ("fmt"
+import (
 	"net/http"
-	"log"
 	"os"
+	"github.com/ob-vss-ss18/ppl-billingandmailing/api"
+	"log"
 )
 
 func main() {
-	http.HandleFunc("/", handler)
-	fmt.Println("Server started...")
-	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))		//  assigned by Heroku as the PORT environment variable
-}
+	// GET PORT FROM HEROKU ENVIRONMENT VARIABLE. IF NOT EXISTENT USE PORT 8000
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
 
-func handler(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(w, "Hello World (Dev Branch)")
-}
+	http.Handle("/graphql", api.Init_graphql())
+	log.Println("Server started at http://localhost:" + port + "/graphql")
+	err := http.ListenAndServe(":" + port, nil)
+	if err != nil {
+		log.Fatal(err)
+		}
+	}
