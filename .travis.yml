@@ -8,5 +8,4 @@ deploy:
   app: ppl-billingandmailing-dev
   branches:
     only:
-      - development
-      - master
+      - develop
