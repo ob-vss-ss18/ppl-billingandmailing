@@ -13,7 +13,8 @@ func main() {
 	if port == "" {
 		port = "8000"
 	}
-
+	
+	http.HandleFunc("/", handler)
 	http.Handle("/graphql", api.Init_graphql())
 	log.Println("Server started at http://localhost:" + port + "/graphql")
 	err := http.ListenAndServe(":" + port, nil)
@@ -21,3 +22,7 @@ func main() {
 		log.Fatal(err)
 		}
 	}
+
+func handler(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprintln(w, "Hello World (Dev Branch)")
+}
