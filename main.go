@@ -3,10 +3,11 @@ package main
 import (
 	"net/http"
 	"os"
-	"ppl-billingandmailing/pdf"
-  "ppl-billingandmailing/api"
+
 	"log"
 	"fmt"
+	"github.com/ob-vss-ss18/ppl-billingandmailing/api"
+	"github.com/ob-vss-ss18/ppl-billingandmailing/pdf"
 )
 
 func main() {
@@ -23,7 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 		}
-  pdf.InvoiceExample()
+  	pdf.InvoiceExample()
 	}
 
 func handler(w http.ResponseWriter, req *http.Request) {
